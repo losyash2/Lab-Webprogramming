@@ -5,22 +5,26 @@
     <meta name="description" content="Резюме Лося Станіслава">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моє резюме</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-    <h1>Лось Станіслав</h1>
-    <p>Студент спеціальності Кібербезпека</p>
+<header class="header">
+    <div class="container">
+        <h1 id="name">Лось Станіслав</h1>
+        <p class="subtitle">Студент спеціальності Кібербезпека</p>
+    </div>
 </header>
 
-<main>
+<main class="container">
 
-<section>
+<section class="card" id="about">
     <h2>Про мене</h2>
-    <p>Я студент Львівської політехніки, спеціальність Кібербезпека. Цікавлюся програмуванням, геймдевом та інформаційною безпекою.</p>
+    <p>Я студент Львівської політехніки, спеціальність Кібербезпека. 
+       Цікавлюся програмуванням, геймдевом та інформаційною безпекою.</p>
 </section>
 
-<section>
+<section class="card">
     <h2>Освіта</h2>
     <ul>
         <li>Національний університет "Львівська політехніка"</li>
@@ -28,24 +32,23 @@
     </ul>
 </section>
 
-<section>
+<section class="card">
     <h2>Навички</h2>
-    <ul>
-        <li>Python</li>
-        <li>C#</li>
-    </ul>
-</section>
+    <div class="grid">
+        <div class="skill">Python</div>
+        <div class="skill">C#</div>
+    </div>
 </section>
 
-<section>
+<section class="card">
     <h2>Контакти</h2>
-    <p>Email: stas88los@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/losyash2">github.com</a></p>
+    <p>Email: <a href="mailto:stas88los@gmail.com">stas88los@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/losyash2" target="_blank">github.com</a></p>
 </section>
 
 </main>
 
-<footer>
+<footer class="footer">
     <p>2026 © Всі права захищені</p>
 </footer>
 

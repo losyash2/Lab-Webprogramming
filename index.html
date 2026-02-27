@@ -1,98 +1,104 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Резюме Лося Станіслава">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моє резюме</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Резюме Лося Станіслава">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моє резюме</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<div class="theme-switch">
-    <label class="switch">
-        <input type="checkbox" id="themeToggle">
-        <span class="slider"></span>
-    </label>
-</div>
-<div class="modal" id="feedbackModal">
-  <div class="modal-content">
-    <button class="modal-close" id="modalClose">×</button>
-    <h2>Зворотній зв'язок</h2>
 
-    <!-- ВАЖЛИВО: сюди вставиш свій Formspree endpoint -->
-    <form action="https://formspree.io/f/mkovegaq" method="POST">
-
-  <label>Ім’я
-    <input type="text" name="name" required>
-  </label>
-
-  <label>Email
-    <input type="email" name="email" required>
-  </label>
-
-  <label>Телефон
-    <input type="tel" name="phone" required>
-  </label>
-
-  <label>Повідомлення
-    <textarea name="message" rows="4" required></textarea>
-  </label>
-
-  <button type="submit" class="btn">Відправити</button>
-
-</form>
-  </div>
-</div>
 <body>
 
-<header class="header">
+  <header class="header">
     <div class="container">
-        <h1 id="name">Лось Станіслав</h1>
-        <p class="subtitle">Студент спеціальності Кібербезпека</p>
+      <h1 id="name">Лось Станіслав</h1>
+      <p class="subtitle">Студент спеціальності Кібербезпека</p>
+
+      <!-- Тумблер теми -->
+      <div class="theme-switch">
+        <label class="switch">
+          <input type="checkbox" id="themeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
     </div>
-</header>
+  </header>
 
-<main class="container">
+  <main class="container">
 
-<section class="card" id="about">
-    <h2>Про мене</h2>
-    <p>Я студент Львівської політехніки, спеціальність Кібербезпека. 
-       Цікавлюся програмуванням, геймдевом та інформаційною безпекою.</p>
-</section>
+    <section class="card" id="about">
+      <h2>Про мене</h2>
+      <p>Я студент Львівської політехніки, спеціальність Кібербезпека.
+        Цікавлюся програмуванням, геймдевом та інформаційною безпекою.</p>
+    </section>
 
-<section class="card">
-    <h2>Освіта</h2>
-    <ul>
+    <section class="card">
+      <h2>Освіта</h2>
+      <ul>
         <li>Національний університет "Львівська політехніка"</li>
         <li>Спеціальність: Кібербезпека</li>
-    </ul>
-</section>
+      </ul>
+    </section>
 
-<section class="card">
-    <h2>Навички</h2>
-    <div class="grid">
+    <section class="card">
+      <h2>Навички</h2>
+      <div class="grid">
         <div class="skill">Python</div>
         <div class="skill">C#</div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section class="card">
-    <h2>Контакти</h2>
-    <p>Email: <a href="mailto:stas88los@gmail.com">stas88los@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/losyash2" target="_blank">github.com</a></p>
-</section>
+    <section class="card">
+      <h2>Контакти</h2>
+      <p>Email: <a href="mailto:stas88los@gmail.com">stas88los@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/losyash2" target="_blank">github.com</a></p>
+    </section>
 
-<section class="card" id="comments">
-  <h2>Коментарі попередніх роботодавців</h2>
-  <div id="commentsList">Завантаження...</div>
-</section>
+    <section class="card" id="comments">
+      <h2>Коментарі попередніх роботодавців</h2>
+      <div id="commentsList">Завантаження...</div>
+    </section>
 
-</main>
+  </main>
 
-<footer class="footer">
+  <footer class="footer">
     <p>2026 © Всі права захищені</p>
     <div id="storageDump"></div>
-</footer>
+  </footer>
 
-<script src="script.js"></script>
+  <!-- МОДАЛКА (показ через 1 хв) -->
+  <div class="modal" id="feedbackModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" type="button">×</button>
+      <h2>Зворотній зв'язок</h2>
+
+      <form action="https://formspree.io/f/mkovegaq" method="POST">
+        <label>
+          Ім’я
+          <input type="text" name="name" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          Телефон
+          <input type="tel" name="phone" required>
+        </label>
+
+        <label>
+          Повідомлення
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+
+        <button type="submit" class="btn">Відправити</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

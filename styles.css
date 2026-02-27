@@ -25,10 +25,10 @@ body {
 }
 
 .subtitle {
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
-/* Card (box model) */
+/* Card */
 .card {
     background: white;
     padding: 20px;
@@ -74,36 +74,9 @@ a {
 
 /* Footer */
 .footer {
-    text-align: center;
-    padding: 15px;
     background: #e5e7eb;
-}
-.footer{
-  background:#e5e7eb;
-  padding: 16px 20px;
-  text-align:center;
-}
-
-#storageDump{
-  max-width: 900px;
-  margin: 12px auto 0;
-  text-align:left;
-  font-size: 14px;
-  background: white;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  padding: 12px;
-  overflow:auto;
-}
-
-#storageDump ul{
-  margin: 8px 0 0;
-  padding-left: 18px;
-}
-
-#storageDump li{
-  margin: 6px 0;
-  word-break: break-word;
+    padding: 16px 20px;
+    text-align: center;
 }
 
 #storageDump {
@@ -116,7 +89,7 @@ a {
     border-radius: 10px;
     padding: 12px;
     overflow: auto;
-    color: #111; /* важливо: текст точно чорний */
+    color: #111;
 }
 
     #storageDump ul {
@@ -128,6 +101,8 @@ a {
         margin: 6px 0;
         word-break: break-word;
     }
+
+/* Коментарі */
 #commentsList .comment {
     border: 1px solid #d1d5db;
     border-radius: 10px;
@@ -139,10 +114,12 @@ a {
     #commentsList .comment h4 {
         margin: 0 0 6px;
     }
+
+/* ===== Модалка ===== */
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0,0,0,0.55);
     display: none;
     align-items: center;
     justify-content: center;
@@ -161,6 +138,7 @@ a {
     border-radius: 14px;
     padding: 18px;
     position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
 .modal-close {
@@ -176,12 +154,14 @@ a {
 .modal-content form {
     display: grid;
     gap: 10px;
+    margin-top: 10px;
 }
 
 .modal-content label {
     display: grid;
     gap: 6px;
     font-size: 14px;
+    color: #111;
 }
 
 .modal-content input,
@@ -190,9 +170,21 @@ a {
     padding: 10px 12px;
     border: 1px solid #d1d5db;
     border-radius: 10px;
+    font-size: 14px;
 }
+
+.btn {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ===== Тумблер ===== */
 .theme-switch {
-    margin-top: 10px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
 }
 
 .switch {
@@ -236,6 +228,8 @@ input:checked + .slider {
     input:checked + .slider:before {
         transform: translateX(24px);
     }
+
+/* ===== Dark theme ===== */
 body.dark {
     background-color: #0f172a;
     color: #f1f5f9;
@@ -252,8 +246,10 @@ body.dark {
     body.dark a {
         color: #60a5fa;
     }
-    /* щоб у темній темі текст коментарів був чорний */
+
+    /* Коментарі в темній темі — лишаємо чорний текст на світлому фоні */
     body.dark #commentsList .comment {
+        background: #f3f4f6;
         color: #000;
     }
 
@@ -261,7 +257,3 @@ body.dark {
         body.dark #commentsList .comment p {
             color: #000;
         }
-    body.dark #commentsList .comment {
-        background: #f3f4f6;
-        color: #000;
-    }

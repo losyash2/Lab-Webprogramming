@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // 1) Зберігаємо systemInfo
+    // ===== 1) systemInfo -> localStorage =====
     const systemInfo = {
         userAgent: navigator.userAgent,
         platform: navigator.platform,
@@ -15,9 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("systemInfo", JSON.stringify(systemInfo));
     console.log("System info saved:", systemInfo);
 
-    // 2) Виводимо localStorage у футер
+    // ===== 1b) показати localStorage у футері =====
     const storageDiv = document.getElementById("storageDump");
-
     if (!storageDiv) {
         console.error("НЕ знайдено елемент #storageDump у HTML");
         return;
@@ -38,14 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     output += "</ul>";
     storageDiv.innerHTML = output;
 
-    console.log("storageDump filled, length =", storageDiv.innerHTML.length);
-
-    // 3) Коментарі з JSONPlaceholder
+    // ===== 2) Коментарі з JSONPlaceholder =====
     fetch("https://jsonplaceholder.typicode.com/posts/16/comments")
         .then(res => res.json())
         .then(comments => {
             const list = document.getElementById("commentsList");
-
             if (!list) {
                 console.error("НЕ знайдено елемент #commentsList у HTML");
                 return;
@@ -69,42 +65,56 @@ document.addEventListener("DOMContentLoaded", () => {
             const list = document.getElementById("commentsList");
             if (list) list.textContent = "Помилка завантаження коментарів.";
         });
-    // ===== ТЕМА =====
+
+    // ===== 3) Модалка через 1 хв =====
+    const modal = document.getElementById("feedbackModal");
+    const closeBtn = document.getElementById("modalClose");
+
+    if (modal && closeBtn) {
+        setTimeout(() => {
+            modal.classList.add("show");
+        }, 60000); // 60 секунд
+
+        closeBtn.addEventListener("click", () => {
+            modal.classList.remove("show");
+        });
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) modal.classList.remove("show");
+        });
+    } else {
+        console.warn("Модалка не знайдена: перевір id feedbackModal або modalClose");
+    }
+
+    // ===== 4) Тумблер теми + авто 07:00-21:00 =====
     const toggle = document.getElementById("themeToggle");
 
-    // автоматичне визначення по часу
-    function autoTheme() {
-        const hour = new Date().getHours();
-        if (hour >= 7 && hour < 21) {
-            document.body.classList.remove("dark");
-            toggle.checked = false;
-        } else {
+    function applyTheme(theme) {
+        if (theme === "dark") {
             document.body.classList.add("dark");
-            toggle.checked = true;
+            if (toggle) toggle.checked = true;
+        } else {
+            document.body.classList.remove("dark");
+            if (toggle) toggle.checked = false;
         }
     }
 
-    // якщо користувач вже вибрав тему раніше
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme) {
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark");
-            toggle.checked = true;
-        }
+        applyTheme(savedTheme);
     } else {
-        autoTheme();
+        const hour = new Date().getHours();
+        const autoTheme = (hour >= 7 && hour < 21) ? "light" : "dark";
+        applyTheme(autoTheme);
     }
 
-    // перемикання вручну
-    toggle.addEventListener("change", () => {
-        if (toggle.checked) {
-            document.body.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            document.body.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    });
+    if (toggle) {
+        toggle.addEventListener("change", () => {
+            const newTheme = toggle.checked ? "dark" : "light";
+            localStorage.setItem("theme", newTheme);
+            applyTheme(newTheme);
+        });
+    }
 
 });

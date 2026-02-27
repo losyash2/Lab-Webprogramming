@@ -78,3 +78,190 @@ a {
     padding: 15px;
     background: #e5e7eb;
 }
+.footer{
+  background:#e5e7eb;
+  padding: 16px 20px;
+  text-align:center;
+}
+
+#storageDump{
+  max-width: 900px;
+  margin: 12px auto 0;
+  text-align:left;
+  font-size: 14px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px;
+  overflow:auto;
+}
+
+#storageDump ul{
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+#storageDump li{
+  margin: 6px 0;
+  word-break: break-word;
+}
+
+#storageDump {
+    max-width: 900px;
+    margin: 12px auto 0;
+    text-align: left;
+    font-size: 14px;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 12px;
+    overflow: auto;
+    color: #111; /* важливо: текст точно чорний */
+}
+
+    #storageDump ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+    }
+
+    #storageDump li {
+        margin: 6px 0;
+        word-break: break-word;
+    }
+#commentsList .comment {
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 10px 0;
+    background: #fff;
+}
+
+    #commentsList .comment h4 {
+        margin: 0 0 6px;
+    }
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+    .modal.show {
+        display: flex;
+    }
+
+.modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.modal-content form {
+    display: grid;
+    gap: 10px;
+}
+
+.modal-content label {
+    display: grid;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+}
+.theme-switch {
+    margin-top: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .3s;
+}
+
+    .slider:before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50%;
+        transition: .3s;
+    }
+
+input:checked + .slider {
+    background-color: #2563eb;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(24px);
+    }
+body.dark {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+    body.dark .card {
+        background-color: #1e293b;
+    }
+
+    body.dark .footer {
+        background-color: #0f172a;
+    }
+
+    body.dark a {
+        color: #60a5fa;
+    }
+    /* щоб у темній темі текст коментарів був чорний */
+    body.dark #commentsList .comment {
+        color: #000;
+    }
+
+        body.dark #commentsList .comment h4,
+        body.dark #commentsList .comment p {
+            color: #000;
+        }
+    body.dark #commentsList .comment {
+        background: #f3f4f6;
+        color: #000;
+    }
